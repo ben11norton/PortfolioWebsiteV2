@@ -14,15 +14,14 @@ function showMyPersonalPage(){
   dashboardColumn.classList.add('col-3');
 
   var cards = dashboardColumn.querySelectorAll('[id$="Card"]');
-  debugger;
 
-  for(let i = 0; i < cards.length; i++){
+  for (let i = 0; i < cards.length; i++){
     var cardId = cards[i].id;
 
-    if(cardId.includes('My')){
+    if (cardId.includes('My')) {
       cards[i].parentNode.style.display = 'none';
 
-    } else{
+    } else {
       cards[i].parentNode.classList.remove('col-md-4', 'col-lg-3');
       cards[i].parentNode.classList.add('col-12');
     }
@@ -30,6 +29,8 @@ function showMyPersonalPage(){
 
   var contentPanelColumn = document.getElementById('contentPanelColumn');
   contentPanelColumn.removeAttribute('hidden');
+  var contentPanelHeadingRow = contentPanelColumn.querySelector('#conentPanelHeadingRow');
+  contentPanelHeadingRow.appendChild(document.getElementById('MyCardFooterRow').cloneNode(true));
 }
 
 function showMyProjectsPage(){
