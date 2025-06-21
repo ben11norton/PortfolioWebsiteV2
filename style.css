@@ -5,10 +5,41 @@
      padding: 20px;
 }
 
+#dashboardColumnDropDownButton {
+    display: none;
+}
+
+.customHidden{
+    display: none !important;
+}
+.customShow{
+    display: block !important;
+}
+
 @media (max-width: 610px){
     #pageParentRow {
+        margin-top: 10px;
+        margin-bottom: 10px;
         margin-right: 0px;
         margin-left: 0px;
         padding: 5px;
+    }
+
+    #dashboardColumnDropDownButton {
+        display: block;
+    }
+
+    body.show-cards #MyCard,
+    body.show-cards #ProjectsCard,
+    body.show-cards #ExperienceCard,
+    body.show-cards #ContactCard {
+        display: flex !important;
+    }
+
+    #MyCard,
+    #ProjectsCard,
+    #ExperienceCard,
+    #ContactCard {
+        display: none !important;
     }
 }

@@ -1,7 +1,10 @@
 // neovim btw
+giveCardsOnClicks();
+clickDashboardDropDownButton();
+
 let previousCardId = '';
 
-giveCardsOnClicks();
+
 function giveCardsOnClicks(){
     var dashboardCards = document.querySelectorAll('[id$="Card"]');
 
@@ -48,6 +51,33 @@ function constructConentPanel(selectedCard){
     }
 
     previousCardId = selectedCard.id;
+}
+
+function clickDashboardDropDownButton(){
+    var dashboardDropDownButton = document.getElementById('dashboardColumnDropDownButton');
+    dashboardDropDownButton.addEventListener('click', expandDashboardPanel);
+}
+
+function expandDashboardPanel(){
+    var dashboardDropDownButton = document.getElementById('dashboardColumnDropDownButton');
+    dashboardDropDownButton.classList.remove('fa-circle-chevron-down');
+    dashboardDropDownButton.classList.add('fa-circle-chevron-up');
+    dashboardDropDownButton.id = 'dashboardColumnDropUpButton'
+    dashboardDropDownButton.removeEventListener('click', expandDashboardPanel);
+    dashboardDropDownButton.addEventListener('click', collapseDashboardPanel);
+
+    document.body.classList.add('show-cards');
+}
+
+function collapseDashboardPanel(){
+    var dashboardDropUpButton = document.getElementById('dashboardColumnDropUpButton');
+    dashboardDropUpButton.classList.remove('fa-circle-chevron-up');
+    dashboardDropUpButton.classList.add('fa-circle-chevron-down');
+    dashboardDropUpButton.id = 'dashboardColumnDropDownButton'
+    dashboardDropUpButton.removeEventListener('click', collapseDashboardPanel);
+    dashboardDropUpButton.addEventListener('click', expandDashboardPanel);
+
+    document.body.classList.remove('show-cards');
 }
 
 
