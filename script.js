@@ -1,47 +1,53 @@
 // neovim btw
+let previousCardId = '';
 
 giveCardsOnClicks();
 function giveCardsOnClicks(){
-  document.getElementById('MyCard').addEventListener('click', showMyPersonalPage);
-  document.getElementById('ProjectsCard').addEventListener('click', showMyProjectsPage);
-  document.getElementById('ExperienceCard').addEventListener('click', showMyExperiencePage);
-  document.getElementById('ContactCard').addEventListener('click', showMyContactPage);
-}
+    var dashboardCards = document.querySelectorAll('[id$="Card"]');
 
-function showMyPersonalPage(){
-  var dashboardPanel = document.getElementById('dashboardColumn');
-  dashboardColumn.classList.remove('col-12');
-  dashboardColumn.classList.add('col-3');
-
-  var cards = dashboardColumn.querySelectorAll('[id$="Card"]');
-
-  for (let i = 0; i < cards.length; i++){
-    var cardId = cards[i].id;
-
-    if (cardId.includes('My')) {
-      cards[i].parentNode.style.display = 'none';
-
-    } else {
-      cards[i].parentNode.classList.remove('col-md-4', 'col-lg-3');
-      cards[i].parentNode.classList.add('col-12');
+    for (let i = 0; i < dashboardCards.length; i++){
+        dashboardCards[i].addEventListener('click', function(){
+            showSelectedCardPage(dashboardCards[i], dashboardCards);
+        })
     }
-  }
-
-  var contentPanelColumn = document.getElementById('contentPanelColumn');
-  contentPanelColumn.removeAttribute('hidden');
-  var contentPanelHeadingRow = contentPanelColumn.querySelector('#conentPanelHeadingRow');
-  contentPanelHeadingRow.appendChild(document.getElementById('MyCardFooterRow').cloneNode(true));
 }
 
-function showMyProjectsPage(){
-
+function showSelectedCardPage(selectedCard, dashboardCards){
+    constructSideBar(selectedCard.id, dashboardCards);
+    constructConentPanel(selectedCard);
 }
 
-function showMyExperiencePage(){
+function constructSideBar(selectedCardId, cards){
+    var dashboardPanel = document.getElementById('dashboardColumn');
+    dashboardColumn.classList.remove('col-12');
+    dashboardColumn.classList.add('col-3');
 
+    for (let i = 0; i < cards.length; i++){
+        if (cards[i].id == selectedCardId) {
+            cards[i].parentNode.style.display = 'none';
+
+        } else {
+            cards[i].parentNode.classList.remove('col-md-4', 'col-lg-3');
+            cards[i].parentNode.classList.add('col-12');
+            cards[i].parentNode.style.display = 'block';
+        }
+    }
 }
 
-function showMyContactPage(){
+function constructConentPanel(selectedCard){
+    var contentPanelColumn = document.getElementById('contentPanelColumn');
+    contentPanelColumn.removeAttribute('hidden');
+    var contentPanelHeadingRow = contentPanelColumn.querySelector('#conentPanelHeadingRow');
+    var selectedCardFooterRow = document.getElementById(`${selectedCard.id}FooterRow`).cloneNode(true);
+    selectedCardFooterRow.id = `${selectedCard.id}ContentPanelHeader`;
+    contentPanelHeadingRow.appendChild(selectedCardFooterRow);
 
+    if (previousCardId != ''){
+        contentPanelHeadingRow.removeChild(conentPanelHeadingRow.querySelector(`#${previousCardId}ContentPanelHeader`));
+    }
+
+    previousCardId = selectedCard.id;
 }
+
+
 
