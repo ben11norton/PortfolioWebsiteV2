@@ -1,0 +1,14 @@
+#pageParentRow {
+     margin-top: 50px;
+     margin-right: 20px;
+     margin-left: 20px;
+     padding: 20px;
+}
+
+@media (max-width: 610px){
+    #pageParentRow {
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 5px;
+    }
+}

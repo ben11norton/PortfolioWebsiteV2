@@ -20,7 +20,8 @@ function showSelectedCardPage(selectedCard, dashboardCards){
 function constructSideBar(selectedCardId, cards){
     var dashboardPanel = document.getElementById('dashboardColumn');
     dashboardColumn.classList.remove('col-12');
-    dashboardColumn.classList.add('col-3');
+    dashboardColumn.classList.add('col-12', 'col-md-4', 'col-lg-3');
+    dashboardColumn.style.marginBottom = '20px';
 
     for (let i = 0; i < cards.length; i++){
         if (cards[i].id == selectedCardId) {
