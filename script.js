@@ -78,8 +78,9 @@ function showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelH
 }
 
 function clickDashboardDropDownButton(){
-    var dashboardDropDownButton = document.getElementById('dashboardColumnDropUpButton');
-    dashboardDropDownButton.addEventListener('click', collapseDashboardPanel);
+    var dashboardDropUpButton = document.getElementById('dashboardColumnDropUpButton');
+    dashboardDropUpButton.style.cursor = 'pointer';
+    dashboardDropUpButton.addEventListener('click', collapseDashboardPanel);
 }
 
 function collapseDashboardPanel(){
