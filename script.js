@@ -40,17 +40,38 @@ function constructSideBar(selectedCardId, cards){
 
 function constructConentPanel(selectedCard){
     var contentPanelColumn = document.getElementById('contentPanelColumn');
-    contentPanelColumn.removeAttribute('hidden');
     var contentPanelHeadingRow = contentPanelColumn.querySelector('#conentPanelHeadingRow');
+    var contentPanelContent = document.getElementById('contentPanelContent');
+
+    removePreviousCardContent(selectedCard, contentPanelHeadingRow, contentPanelContent);
+
+    showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelHeadingRow, contentPanelContent);
+}
+
+function removePreviousCardContent(selectedCard, contentPanelHeadingRow, contentPanelContent){
+
+    if (previousCardId != ''){
+        contentPanelHeadingRow.removeChild(conentPanelHeadingRow.querySelector(`#${previousCardId}ContentPanelHeader`));
+
+        var previousPanelContent = contentPanelContent.querySelector(`#${previousCardId}ContentShowing`);
+        contentPanelContent.removeChild(previousPanelContent);
+    }
+
+    previousCardId = selectedCard.id;
+
+
+}
+
+function showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelHeadingRow){
+    contentPanelColumn.removeAttribute('hidden');
     var selectedCardFooterRow = document.getElementById(`${selectedCard.id}FooterRow`).cloneNode(true);
     selectedCardFooterRow.id = `${selectedCard.id}ContentPanelHeader`;
     contentPanelHeadingRow.appendChild(selectedCardFooterRow);
 
-    if (previousCardId != ''){
-        contentPanelHeadingRow.removeChild(conentPanelHeadingRow.querySelector(`#${previousCardId}ContentPanelHeader`));
-    }
-
-    previousCardId = selectedCard.id;
+    var contentToShowInPanel = document.getElementById(`${selectedCard.id}ContentHidden`).cloneNode(true);
+    contentToShowInPanel.id = `${selectedCard.id}ContentShowing`;
+    contentToShowInPanel.removeAttribute('hidden');
+    contentPanelContent.appendChild(contentToShowInPanel);
 }
 
 function clickDashboardDropDownButton(){
