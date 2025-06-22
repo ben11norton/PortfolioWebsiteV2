@@ -18,6 +18,12 @@ function giveCardsOnClicks(){
 function showSelectedCardPage(selectedCard, dashboardCards){
     constructSideBar(selectedCard.id, dashboardCards);
     constructConentPanel(selectedCard);
+
+    var dashboardColumnDropUpButton = document.getElementById('dashboardColumnDropUpButton');
+
+    if (window.getComputedStyle(dashboardColumnDropUpButton).display === 'block'){
+        collapseDashboardPanel();
+    }
 }
 
 function constructSideBar(selectedCardId, cards){
