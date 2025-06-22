@@ -36,12 +36,12 @@
         display: none !important;
     }
 
-    #MyCard,
-    #ProjectsCard,
-    #ExperienceCard,
-    #ContactCard {
-        display: flex !important;
-    }
+    /* #MyCard, */
+    /* #ProjectsCard, */
+    /* #ExperienceCard, */
+    /* #ContactCard { */
+    /*     display: flex !important; */
+    /* } */
 }
 .timeline {
     position: relative;
