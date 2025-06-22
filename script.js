@@ -49,7 +49,6 @@ function constructConentPanel(selectedCard){
 }
 
 function removePreviousCardContent(selectedCard, contentPanelHeadingRow, contentPanelContent){
-
     if (previousCardId != ''){
         contentPanelHeadingRow.removeChild(conentPanelHeadingRow.querySelector(`#${previousCardId}ContentPanelHeader`));
 
@@ -58,8 +57,6 @@ function removePreviousCardContent(selectedCard, contentPanelHeadingRow, content
     }
 
     previousCardId = selectedCard.id;
-
-
 }
 
 function showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelHeadingRow){
