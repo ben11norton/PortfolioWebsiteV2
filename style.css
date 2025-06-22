@@ -29,6 +29,10 @@
         display: block;
     }
 
+    #dashboardColumnDropDownButton {
+        display: block;
+    }
+
     body.hide-cards #MyCard,
     body.hide-cards #ProjectsCard,
     body.hide-cards #ExperienceCard,
