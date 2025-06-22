@@ -54,19 +54,8 @@ function constructConentPanel(selectedCard){
 }
 
 function clickDashboardDropDownButton(){
-    var dashboardDropDownButton = document.getElementById('dashboardColumnDropDownButton');
-    dashboardDropDownButton.addEventListener('click', expandDashboardPanel);
-}
-
-function expandDashboardPanel(){
-    var dashboardDropDownButton = document.getElementById('dashboardColumnDropDownButton');
-    dashboardDropDownButton.classList.remove('fa-circle-chevron-down');
-    dashboardDropDownButton.classList.add('fa-circle-chevron-up');
-    dashboardDropDownButton.id = 'dashboardColumnDropUpButton'
-    dashboardDropDownButton.removeEventListener('click', expandDashboardPanel);
+    var dashboardDropDownButton = document.getElementById('dashboardColumnDropUpButton');
     dashboardDropDownButton.addEventListener('click', collapseDashboardPanel);
-
-    document.body.classList.add('show-cards');
 }
 
 function collapseDashboardPanel(){
@@ -77,8 +66,18 @@ function collapseDashboardPanel(){
     dashboardDropUpButton.removeEventListener('click', collapseDashboardPanel);
     dashboardDropUpButton.addEventListener('click', expandDashboardPanel);
 
-    document.body.classList.remove('show-cards');
+    document.body.classList.add('hide-cards');
 }
 
+function expandDashboardPanel(){
+    var dashboardDropDownButton = document.getElementById('dashboardColumnDropDownButton');
+    dashboardDropDownButton.classList.remove('fa-circle-chevron-down');
+    dashboardDropDownButton.classList.add('fa-circle-chevron-up');
+    dashboardDropDownButton.id = 'dashboardColumnDropUpButton'
+    dashboardDropDownButton.removeEventListener('click', expandDashboardPanel);
+    dashboardDropDownButton.addEventListener('click', collapseDashboardPanel);
+
+    document.body.classList.remove('hide-cards');
+}
 
 

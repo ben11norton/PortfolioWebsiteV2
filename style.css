@@ -5,7 +5,7 @@
      padding: 20px;
 }
 
-#dashboardColumnDropDownButton {
+#dashboardColumnDropUpButton {
     display: none;
 }
 
@@ -25,21 +25,21 @@
         padding: 5px;
     }
 
-    #dashboardColumnDropDownButton {
+    #dashboardColumnDropUpButton {
         display: block;
     }
 
-    body.show-cards #MyCard,
-    body.show-cards #ProjectsCard,
-    body.show-cards #ExperienceCard,
-    body.show-cards #ContactCard {
-        display: flex !important;
+    body.hide-cards #MyCard,
+    body.hide-cards #ProjectsCard,
+    body.hide-cards #ExperienceCard,
+    body.hide-cards #ContactCard {
+        display: none !important;
     }
 
     #MyCard,
     #ProjectsCard,
     #ExperienceCard,
     #ContactCard {
-        display: none !important;
+        display: flex !important;
     }
 }
