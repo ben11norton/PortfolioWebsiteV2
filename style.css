@@ -9,6 +9,10 @@
     display: none;
 }
 
+#dashboardColumnDropDownButton {
+    display: none;
+}
+
 .customHidden{
     display: none !important;
 }
