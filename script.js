@@ -75,6 +75,17 @@ function showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelH
     contentToShowInPanel.id = `${selectedCard.id}ContentShowing`;
     contentToShowInPanel.removeAttribute('hidden');
     contentPanelContent.appendChild(contentToShowInPanel);
+
+    var contentPanelCard = contentPanelColumn.querySelector('#contentPanelCard');
+    if (selectedCard.id == 'MyCard'){
+        contentPanelCard.style.backgroundImage = "url('images/caves.jpg')";
+        contentPanelCard.style.backgroundRepeat = "no-repeat";
+        contentPanelCard.style.backgroundSize = "cover";
+        contentPanelCard.style.backgroundPosition = "center";
+
+    } else {
+        contentPanelCard.style.backgroundImage = "";
+    }
 }
 
 function clickDashboardDropDownButton(){
