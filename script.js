@@ -78,7 +78,8 @@ function showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelH
 
     var contentPanelCard = contentPanelColumn.querySelector('#contentPanel');
     if (selectedCard.id == 'MyCard'){
-        contentPanelCard.style.backgroundImage = "url('images/caves.jpg')";
+        // contentPanelCard.style.backgroundImage = "linear-gradient(135deg, rgba(200,200,200,0.8), rgba(150,150,150,0.8)), url('images/caves.jpg')";
+        contentPanelCard.style.backgroundImage = "linear-gradient(135deg, rgba(200,200,200,0.8), rgba(150,150,150,0.8))";
         contentPanelCard.style.backgroundRepeat = "no-repeat";
         contentPanelCard.style.backgroundSize = "cover";
         contentPanelCard.style.backgroundPosition = "center";
