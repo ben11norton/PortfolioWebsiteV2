@@ -76,7 +76,7 @@ function showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelH
     contentToShowInPanel.removeAttribute('hidden');
     contentPanelContent.appendChild(contentToShowInPanel);
 
-    var contentPanelCard = contentPanelColumn.querySelector('#contentPanelCard');
+    var contentPanelCard = contentPanelColumn.querySelector('#contentPanel');
     if (selectedCard.id == 'MyCard'){
         contentPanelCard.style.backgroundImage = "url('images/caves.jpg')";
         contentPanelCard.style.backgroundRepeat = "no-repeat";
