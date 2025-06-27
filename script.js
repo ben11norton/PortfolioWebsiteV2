@@ -77,16 +77,25 @@ function showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelH
     contentPanelContent.appendChild(contentToShowInPanel);
 
     var contentPanelCard = contentPanelColumn.querySelector('#contentPanel');
-    if (selectedCard.id == 'MyCard'){
-        // contentPanelCard.style.backgroundImage = "linear-gradient(135deg, rgba(200,200,200,0.8), rgba(150,150,150,0.8)), url('images/caves.jpg')";
-        contentPanelCard.style.backgroundImage = "linear-gradient(135deg, rgba(200,200,200,0.8), rgba(150,150,150,0.8))";
-        contentPanelCard.style.backgroundRepeat = "no-repeat";
-        contentPanelCard.style.backgroundSize = "cover";
-        contentPanelCard.style.backgroundPosition = "center";
+    contentPanelCard.style.background = getSelectedCardPanelBackground(selectedCard.id);
+}
 
-    } else {
-        contentPanelCard.style.backgroundImage = "";
+function getSelectedCardPanelBackground(cardId){
+    let backgroundColor = '';
+
+    switch(cardId){
+        case 'MyCard':
+            backgroundColor = '#2C595B';
+            break;
+        case 'ExperienceCard':
+            backgroundColor = '#203354';
+            break;
+        default:
+            backgroundColor = '';
+            break;
     }
+
+    return backgroundColor;
 }
 
 function clickDashboardDropDownButton(){
