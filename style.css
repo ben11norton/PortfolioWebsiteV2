@@ -100,3 +100,14 @@
 .my-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
+
+.hiddenPhotoWidgetText {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+}
+
+.hiddenPhotoWidgetText.visible {
+  opacity: 1;
+  visibility: visible;
+}

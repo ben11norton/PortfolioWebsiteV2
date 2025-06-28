@@ -144,15 +144,21 @@ function giveMyCardWidgetsOnHover(){
 }
 
 function photoWidgetHover(photoWidget, mouseHover){
+    var photoWidgetText = photoWidget.querySelector('.hiddenPhotoWidgetText');
+    let currentPhotoWidgetTextTimeout;
+
     if(mouseHover) {
         photoWidget.style.transition = '0.5s ease';
-        photoWidget.style.width = '140px';
+        photoWidget.style.width = `${photoWidget.parentNode.offsetWidth * 0.5}px`;
         photoWidget.classList.remove('justify-content-center');
         photoWidget.classList.add('justify-content-start');
+        photoWidgetText.classList.add('visible');
 
     } else {
+        photoWidgetText.classList.remove('visible');
+
+        var photoWidgetWidth = parseInt(photoWidget.style.width.replace('px', ''));
         photoWidget.style.width = '80px';
-        var photoWidgetWidth = parseInt(photoWidget.style.width.split('px', ''));
         var setBackToCenterAlignment = photoWidgetWidth == 80;
 
         if(setBackToCenterAlignment) {
