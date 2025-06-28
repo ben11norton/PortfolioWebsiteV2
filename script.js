@@ -77,14 +77,15 @@ function showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelH
     contentPanelContent.appendChild(contentToShowInPanel);
 
     var contentPanelCard = contentPanelColumn.querySelector('#contentPanel');
-    contentPanelCard.style.background = getSelectedCardPanelBackground(selectedCard.id);
+    contentPanelCard.style.background = getSelectedCardPanelFeatures(selectedCard.id);
 }
 
-function getSelectedCardPanelBackground(cardId){
+function getSelectedCardPanelFeatures(cardId){
     let backgroundColor = '';
 
     switch(cardId){
         case 'MyCard':
+            giveMyCardWidgetsOnHover();
             backgroundColor = '#2C595B';
             break;
         case 'ExperienceCard':
@@ -124,6 +125,41 @@ function expandDashboardPanel(){
     dashboardDropDownButton.addEventListener('click', collapseDashboardPanel);
 
     document.body.classList.remove('hide-cards');
+}
+
+function giveMyCardWidgetsOnHover(){
+    var myContentPhotoWidgets = document.querySelectorAll('.myContentPhotoWidget');
+
+    for(let i = 0; i < myContentPhotoWidgets.length; i++){
+        myContentPhotoWidgets[i].addEventListener('mouseover', function(){
+            var mouseHover = true;
+            photoWidgetHover(myContentPhotoWidgets[i], mouseHover);
+        })
+
+        myContentPhotoWidgets[i].addEventListener('mouseleave', function(){
+            var mouseHover = false;
+            photoWidgetHover(myContentPhotoWidgets[i], mouseHover);
+        })
+    }
+}
+
+function photoWidgetHover(photoWidget, mouseHover){
+    if(mouseHover) {
+        photoWidget.style.transition = '0.5s ease';
+        photoWidget.style.width = '140px';
+        photoWidget.classList.remove('justify-content-center');
+        photoWidget.classList.add('justify-content-start');
+
+    } else {
+        photoWidget.style.width = '80px';
+        var photoWidgetWidth = parseInt(photoWidget.style.width.split('px', ''));
+        var setBackToCenterAlignment = photoWidgetWidth == 80;
+
+        if(setBackToCenterAlignment) {
+            photoWidget.classList.remove('justify-content-start');
+            photoWidget.classList.add('justify-content-center');
+        }
+    }
 }
 
 
