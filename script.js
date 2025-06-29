@@ -149,7 +149,8 @@ function photoWidgetHover(photoWidget, mouseHover){
 
     if(mouseHover) {
         photoWidget.style.transition = '0.5s ease';
-        photoWidget.style.width = `${photoWidget.parentNode.parentNode.offsetWidth * 0.5}px`;
+        // photoWidget.style.width = `${photoWidget.parentNode.parentNode.offsetWidth * 0.5}px`;
+        photoWidget.style.width = '200px';
         photoWidget.classList.remove('justify-content-center');
         photoWidget.classList.add('justify-content-start');
         photoWidgetText.classList.add('visible');
