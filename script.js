@@ -140,6 +140,10 @@ function giveMyCardWidgetsOnHover(){
             var mouseHover = false;
             photoWidgetHover(myContentPhotoWidgets[i], mouseHover);
         })
+
+        myContentPhotoWidgets[i].addEventListener('click', function(){
+            selectPhotoWidget(myContentPhotoWidgets[i]);
+        })
     }
 }
 
@@ -169,4 +173,8 @@ function photoWidgetHover(photoWidget, mouseHover){
     }
 }
 
-
+function selectPhotoWidget(selectedPhotoWidget){
+    var selectedImageToShow = selectedPhotoWidget.querySelector('img').src;
+    var photoWidgetContentPanel = document.getElementById('photoWidgetContentPanel');
+    photoWidgetContentPanel.style.backgroundImage = `url('${selectedImageToShow}')`;
+}
