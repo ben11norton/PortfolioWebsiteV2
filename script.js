@@ -86,6 +86,7 @@ function getSelectedCardPanelFeatures(cardId){
     switch(cardId){
         case 'MyCard':
             giveMyCardWidgetsOnHover();
+            givePhotoContentDropdown();
             backgroundColor = '#2C595B';
             break;
         case 'ExperienceCard':
@@ -178,3 +179,36 @@ function selectPhotoWidget(selectedPhotoWidget){
     var photoWidgetContentPanel = document.getElementById('photoWidgetContentPanel');
     photoWidgetContentPanel.style.backgroundImage = `url('${selectedImageToShow}')`;
 }
+
+function givePhotoContentDropdown(){
+    var myContentPhotoWidgetDropdown = document.getElementById('myContentPhotoWidgetDropdown');
+    myContentPhotoWidgetDropdown.addEventListener('click', expandPhotoWidgetDropdown)
+}
+
+function expandPhotoWidgetDropdown(){
+    var myContentPhotoWidgetDropdown = document.getElementById('myContentPhotoWidgetDropdown');
+    myContentPhotoWidgetDropdown.style.transition = '0.5s ease';
+    myContentPhotoWidgetDropdown.style.width = '200px';
+    myContentPhotoWidgetDropdown.style.height = '300px';
+
+    var dropdownIcon = myContentPhotoWidgetDropdown.querySelector('i');
+    dropdownIcon.classList.remove('fa-circle-chevron-down');
+    dropdownIcon.classList.add('fa-circle-chevron-up');
+
+    myContentPhotoWidgetDropdown.removeEventListener('click', expandPhotoWidgetDropdown);
+    myContentPhotoWidgetDropdown.addEventListener('click', collapsePhotoWidgetDropDown);
+}
+
+function collapsePhotoWidgetDropDown(){
+    var myContentPhotoWidgetDropdown = document.getElementById('myContentPhotoWidgetDropdown');
+    myContentPhotoWidgetDropdown.style.width = '80px';
+    myContentPhotoWidgetDropdown.style.height = '40px';
+
+    var dropdownIcon = myContentPhotoWidgetDropdown.querySelector('i');
+    dropdownIcon.classList.remove('fa-circle-chevron-up');
+    dropdownIcon.classList.add('fa-circle-chevron-down');
+
+    myContentPhotoWidgetDropdown.removeEventListener('click', collapsePhotoWidgetDropDown);
+    myContentPhotoWidgetDropdown.addEventListener('click', expandPhotoWidgetDropdown);
+}
+
