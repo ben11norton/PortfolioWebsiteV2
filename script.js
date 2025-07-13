@@ -81,23 +81,25 @@ function showSelectedCardContent(selectedCard, contentPanelColumn, contentPanelH
 }
 
 function getSelectedCardPanelFeatures(cardId){
-    let backgroundColor = '';
+    // for generating wave backgrounds :)
+    // https://wickedbackgrounds.com/app
+    let background = '';
 
     switch(cardId){
         case 'MyCard':
             giveMyCardWidgetsOnHover();
             givePhotoContentDropdown();
-            backgroundColor = '#2C595B';
+            background = 'url(images/myContentWaves.svg) no-repeat center/cover';
             break;
         case 'ExperienceCard':
-            backgroundColor = '#203354';
+            background = 'url(images/myExperienceWaves.svg) no-repeat center/cover';
             break;
         default:
-            backgroundColor = '';
+            background = '';
             break;
     }
 
-    return backgroundColor;
+    return background;
 }
 
 function clickDashboardDropDownButton(){
