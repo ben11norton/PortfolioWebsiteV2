@@ -1,6 +1,7 @@
 // neovim btw
 giveCardsOnClicks();
 clickDashboardDropDownButton();
+displayCurrentPositionTimeLine();
 
 let previousCardId = '';
 
@@ -214,3 +215,35 @@ function collapsePhotoWidgetDropDown(){
     myContentPhotoWidgetDropdown.addEventListener('click', expandPhotoWidgetDropdown);
 }
 
+function displayCurrentPositionTimeLine(){
+    var overallPositionTimeStamp = document.getElementById('overallPositionTimeStamp');
+    var overallPositionStartingTime = new Date(2024, 6);// July2024
+    overallPositionTimeStamp.textContent = getTimeStampForPosition(overallPositionStartingTime);
+    overallPositionTimeStamp.textContent += " · Hybrid";
+
+
+    var currentPositionTime = document.getElementById('currentPositionTime');
+    var currentPositionTimeStartingTime = new Date(2025, 0);// Jan (0 based indexing)
+    currentPositionTime.textContent += getTimeStampForPosition(currentPositionTimeStartingTime);
+
+}
+
+function getTimeStampForPosition(startingDate){
+    let currentPositionTimeStamp = '';
+    const now = new Date();
+    let totalMonths = (now.getFullYear() - startingDate.getFullYear()) * 12 + (now.getMonth() - startingDate.getMonth() + 1);
+
+    if (totalMonths > 11) {
+        const years = Math.floor(totalMonths / 12);
+        const months = totalMonths % 12;
+        var yearsString = years > 1 ? 'yrs' : 'yr';
+        var monthsString = months > 1 ? 'mos' : 'mon';
+        currentPositionTimeStamp = `${years} ${yearsString} and ${months} ${monthsString}`;
+
+    } else {
+        var monthsString = totalMonths > 1 ? 'mos' : 'mon';
+        currentPositionTimeStamp = `${totalMonths} ${monthsString}`;
+    }
+
+    return currentPositionTimeStamp;
+}
