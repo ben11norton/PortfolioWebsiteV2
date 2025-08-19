@@ -90,7 +90,8 @@ function getSelectedCardPanelFeatures(cardId){
         case 'MyCard':
             giveMyCardWidgetsOnHover();
             givePhotoContentDropdown();
-            background = 'url(images/myContentWaves.svg) no-repeat center/cover';
+            // background = 'url(images/myContentWaves.svg) no-repeat center/cover';
+            background = 'url(images/bgRoom4.jpg) no-repeat center/cover';
             break;
         case 'ExperienceCard':
             background = 'url(images/myExperienceWaves.svg) no-repeat center/cover';
