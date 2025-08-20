@@ -97,6 +97,12 @@ function getSelectedCardPanelFeatures(cardId){
             // background = 'url(images/myExperienceWaves.svg) no-repeat center/cover';
             background = 'url(images/bgRoom2.jpg) no-repeat center/cover';
             break;
+        case 'ProjectsCard':
+            background = 'url(images/bgRoom5.jpg) no-repeat center/cover';
+            break;
+        case 'ContactCard':
+            background = 'url(images/bgRoom8.jpg) no-repeat center/cover';
+            break;
         default:
             background = '';
             break;
