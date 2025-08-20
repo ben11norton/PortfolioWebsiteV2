@@ -54,7 +54,7 @@
 .timeline {
     position: relative;
     border-left: 2px solid #5F6F8A;
-    margin-left: 1rem;
+    margin-left: 28px;
     padding-left: 1.5rem;
 }
 .timeline-item {
@@ -64,7 +64,7 @@
 .timeline-item::before {
       content: "";
       position: absolute;
-      left: -32px;
+      left: -32.5px;
       top: 0;
       width: 15px;
       height: 15px;
