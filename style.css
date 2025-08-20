@@ -53,7 +53,7 @@
 }
 .timeline {
     position: relative;
-    border-left: 2px solid #5F6F8A;
+    border-left: 2px solid #495C60;
     margin-left: 28px;
     padding-left: 1.5rem;
 }
@@ -68,9 +68,9 @@
       top: 0;
       width: 15px;
       height: 15px;
-      background-color: #01629C;
+      background-color: #17B288;
       border-radius: 50%;
-      border: 2px solid #5F6F8A;
+      border: 2px solid #495C60;
     }
 
 /* Container or element with scrollbar */
